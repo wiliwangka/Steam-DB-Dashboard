@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> <!-- DO NOT EDIT THIS LINE-->
+    <title>Game Analytics Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="content-container">
+    <div class="content">
+        <!-- Header Section -->
+        <div class="header-section">
+            <!-- 1. Title -->
+            <div id="h-title">SteamStats: Exploring PC Gaming Industry With Data</div>
+            
+            <!-- 2. Description -->
+            <div id="h-description">
+  Explore the evolution of the gaming industry from 2006 to 2025 with interactive visualizations. Discover how game pricing and trends have changed over time, and witness the rise of indie games. Our dashboard reveals patterns in revenue, reviews, and release trends. Click the <strong>Walkthrough</strong> button and adjust the <strong>slider filter</strong> on the histogram to start exploring!
+    </div>
+        </div>
+
+        <div class="views-container">
+            <!-- 3. Top Timeline View -->
+            <div id="topTimeLineView" class="view full-width"></div>
+            
+            <!-- 5. Publisher and Game Bubbles -->
+            <div id="publisherBubbleView" class="view half-width"></div>
+            <div id="gameBubbleView" class="view half-width"></div>
+            <div id="scatterPlotView" class="view half-width"></div>
+
+            <!-- 6. Game List View -->
+            <div id="gameListView" class="view full-width"></div>
+        </div>
+    </div>
+</div>
+<div id="tooltip"></div>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="js/timeLineViewTop.js"></script>
+<script src="js/timeLineViewDetail.js"></script>
+<script src="js/publisherBubbleView.js"></script>
+<script src="js/gameBubbleView.js"></script>
+<script src="js/scatterPlotView.js"></script>
+<script src="js/gameListView.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html> 

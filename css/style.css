@@ -1,0 +1,514 @@
+/* Steam-inspired styling */
+body {
+    font-family: 'Motiva Sans', Arial, sans-serif;
+    background: #1b2838;
+    color: #c6d4df;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Containers */
+.content-container {
+    display: flex;
+    justify-content: center;
+    background: #1b2838;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.content {
+    max-width: 1400px;
+    width: 100%;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+}
+
+/* Header styles */
+.header-section {
+    position: relative;
+    z-index: 1;
+
+}
+
+#h-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0 0 20px 0;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#h-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: #acb2b8;
+    text-align: left;
+}
+
+/* Grid layout */
+.views-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    margin-top: 20px;
+    transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+}
+
+/* Full width elements span both columns */
+.full-width {
+    grid-column: 1 / span 2;
+}
+
+/* Half width elements take one column each */
+.half-width {
+    grid-column: span 1;
+}
+
+/* Timeline view (top row) */
+#topTimeLineView {
+    height: 150px;
+    width: 100%;
+    background: #2a475e;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ 
+}
+
+/* View styles */
+.view {
+    justify-content: center;
+    align-items: center;
+    background: #2a475e;
+ 
+   
+    transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+ 
+}
+
+/* When header is hidden, expand the views */
+.header-hidden .views-container {
+    margin-top: 0;
+    transform: translateY(-100px);
+}
+
+.header-hidden .view {
+    height: calc(100% + 20px);
+}
+
+/* Publisher bubbles view */
+#publisherBubbleView {
+    height: 450px;
+    width: 100%;
+    justify-self: center;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Scatter plot view */
+#scatterPlotView {
+    height: 450px;
+    width: 100%;
+    justify-self: center;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Game List View */
+#gameListView {
+    height: 200px;
+    width: 100%;
+    justify-self: center;
+    overflow: hidden;
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+}
+
+.game-card {
+    margin-right: 0px;
+    transition: transform 0.2s ease;
+    background: #1b2838;
+    border-radius: 3px;
+    border: 1px solid #375f7d;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(102, 192, 244, 0.4);
+}
+
+.game-card:last-child {
+    margin-right: 0;
+}
+
+/* Bubble chart styles */
+.publisher-bubble {
+    fill-opacity: 0.8;
+}
+
+.publisher-bubble:hover {
+    fill-opacity: 1;
+    stroke-width: 1.5;
+    stroke: #66c0f4;
+    cursor: pointer;
+}
+
+/* Scatter plot styles */
+.game-point {
+    fill-opacity: 0.7;
+    fill: #65C0F4;
+}
+
+.game-point:hover {
+    fill-opacity: 1;
+    stroke-width: 1;
+    stroke: #66c0f4;
+    cursor: pointer;
+}
+
+/* Tooltip */
+#tooltip {
+    position: absolute;
+    display: none;
+    background: rgba(23, 35, 51, 0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 3px;
+    z-index: 1000;
+    font-size: 12px;
+    color: #c6d4df;
+    border: 1px solid #375f7d;
+}
+
+.tooltip-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+/* Timeline styles */
+.chart-area {
+    fill-opacity: 0.7;
+    fill: #66c0f4;
+}
+
+.brush .selection {
+    stroke: #66c0f4;
+    fill: rgba(102, 192, 244, 0.2);
+}
+
+.timeline-title {
+    font-weight: 500;
+    fill: #c6d4df;
+    font-size: 12px;
+    dominant-baseline: hanging;
+}
+
+/* Make controls more compact and position them as a row */
+.controls-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #2a475e;
+    border-radius: 3px;
+}
+
+.dropdown {
+    padding: 5px 10px;
+    background: #417a9b;
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+}
+
+.dropdown:hover {
+    background: #66c0f4;
+}
+
+#gameBubbleView {
+    display: none; /* Hide by default */
+    height: 450px;
+    width: 100%;
+    justify-self: center;
+}
+
+.game-bubble.active {
+    stroke: #66c0f4;
+    stroke-width: 2px;
+}
+
+/* Ensure the publisher slider container is always in the right position */
+#publisherSliderContainer {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 65px; /* Prevent unwanted resizing */
+    margin-bottom: 10px;
+    background: #2a475e;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+/* Style for the slider input */
+#publisherSliderContainer input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 3px;
+    background: #1b2838;
+    outline: none;
+}
+
+#publisherSliderContainer input[type="range"]:hover {
+    background: #263c53;
+}
+
+#publisherSliderContainer input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #66c0f4;
+    cursor: pointer;
+    border: 1px solid #375f7d;
+}
+
+#publisherSliderContainer input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #66c0f4;
+    cursor: pointer;
+    border: 1px solid #375f7d;
+}
+
+.slider-thumb {
+    fill: #66c0f4;
+    cursor: pointer;
+}
+
+.slider-thumb:hover, .slider-thumb.active {
+    fill: #1a9fff;
+}
+
+.slider-track {
+    fill: #1b2838;
+}
+
+.slider-track:hover {
+    fill: #263c53;
+}
+
+.nav-arrow {
+    background: linear-gradient(to bottom, #2a3f5a 5%, #1b2838 95%);
+    color: white;
+    height: 140px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.nav-arrow.left {
+    border-radius: 0 3px 3px 0;
+}
+
+.nav-arrow.right {
+    border-radius: 3px 0 0 3px;
+}
+
+.nav-arrow:hover {
+    background: linear-gradient(to bottom, #417a9b 5%, #2a3f5a 95%);
+}
+
+.nav-arrow-icon {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #375f7d;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pagination-dot:hover {
+    background-color: #66c0f4;
+}
+
+.pagination-dot.active {
+    background-color: #66c0f4;
+    box-shadow: 0 0 5px rgba(102, 192, 244, 0.7);
+}
+
+.toggle-view-btn {
+    background: #417a9b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.toggle-view-btn:hover {
+    background: #66c0f4;
+}
+
+/* Common text styles */
+text {
+    fill: #c6d4df;
+}
+
+/* Axis styling */
+.axis text {
+    fill: #8f98a0;
+    font-size: 11px;
+}
+
+.axis line, .axis path {
+    stroke: #375f7d;
+}
+
+/* Additional styling for the bubble chart */
+.bubble {
+    stroke: #375f7d;
+    transition: all 0.3s ease;
+}
+
+.publisher-label {
+    font-size: 12px;
+    fill: #ffffff;
+    pointer-events: none;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.chart-title {
+    fill: #ffffff;
+    font-size: 14px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.indie-legend {
+    font-size: 12px;
+    fill: #c6d4df;
+}
+
+.indie-toggle rect {
+    fill: #417a9b;
+    stroke: #375f7d;
+    stroke-width: 1;
+}
+
+.indie-toggle text {
+    fill: #ffffff;
+}
+
+.indie-toggle:hover rect {
+    fill: #66c0f4;
+}
+
+.slider-label {
+    fill: #c6d4df;
+}
+
+.slider-value {
+    fill: #66c0f4;
+    font-weight: bold;
+}
+
+.legend {
+    font-size: 11px;
+}
+
+.legend-title {
+    fill: #c6d4df;
+    font-size: 12px;
+}
+
+/* Set a specific color for indie games */
+.indie-color {
+    fill: #8a2be2;
+}
+
+/* Add Steam button styling */
+.steam-button {
+    background: linear-gradient(to bottom, #5a8ab5 5%, #417a9b 95%);
+    border-radius: 2px;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.steam-button:hover {
+    background: linear-gradient(to bottom, #66c0f4 5%, #5a8ab5 95%);
+}
+
+/* Add Steam card styling for game items */
+.game-item {
+    background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+    border-radius: 3px;
+    border: 1px solid #375f7d;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.game-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.3);
+    border-color: #66c0f4;
+}
+
+.game-item-title {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.game-item-info {
+    color: #8f98a0;
+    font-size: 12px;
+}
+
+.game-item-price {
+    color: #a4d007;
+    font-weight: bold;
+}
+
+/* Specific styling for the indie bubble */
+.indie-bubble {
+    fill: #8a2be2;
+    stroke: #663399;
+}
